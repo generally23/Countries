@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Countries App</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="popup-loader">
+      <div class="loader"></div>
+    </div>
+
+    <div class="modal">
+      <div class="modal__wall">
+        <div class="modal__closer">
+          <button class="modal__closer__btn">&times;</button>
+        </div>
+        <div class="country"></div>
+      </div>
+    </div>
+
+    <main class="main">
+      <div class="form">
+        <input type="search" placeholder="Search" class="search" />
+      </div>
+
+      <div class="countries"></div>
+    </main>
+    <script src="utils.js"></script>
+    <script src="view.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
+
+<script></script>

@@ -1,0 +1,301 @@
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.popup-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0.9)));
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+  -webkit-transition: 0.5s ease-out;
+  transition: 0.5s ease-out;
+}
+
+.popup-loader--hide {
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.popup-loader .loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border-width: 5px;
+  border-color: #017c74 #bd5c02 #274a69 #4e0358;
+  border-style: solid;
+  border-radius: 50%;
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(0, 0, 0, 0.6)));
+  background: linear-gradient(to right bottom, rgba(0, 0, 0, 0.6));
+  z-index: 10;
+  opacity: 0;
+  overflow: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.modal--toggle {
+  top: 0;
+  left: 0;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.modal__wall {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 80%;
+  height: 85%;
+  background-color: #ffffff;
+  padding: 40px;
+}
+
+.modal__closer {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+.modal__closer__btn {
+  border: none;
+  background: none;
+  font-size: 25px;
+  outline: none;
+}
+
+.modal .country {
+  overflow: hidden;
+  height: 100%;
+}
+
+.modal .country::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.modal .country__name {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.modal .country__left {
+  float: left;
+  width: 50%;
+}
+
+.modal .country__flag {
+  background-color: #ddd;
+  height: 250px;
+}
+
+.modal .country__flag__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.modal .country__details {
+  overflow: auto;
+  height: 500px;
+  padding: 10px 20px;
+  background: #aaa;
+  margin-top: 20px;
+}
+
+.modal .country__details::-webkit-scrollbar {
+  width: 5px;
+}
+
+.modal .country__details::-webkit-scrollbar-track {
+  background: #aaa;
+}
+
+.modal .country__details::-webkit-scrollbar-thumb {
+  background: #ddd;
+}
+
+.modal .country__detail {
+  padding: 5px 0;
+}
+
+.modal .country__detail::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.modal .country__detail__name {
+  float: left;
+}
+
+.modal .country__detail__value {
+  float: right;
+}
+
+.modal .country__right {
+  float: left;
+  width: 50%;
+}
+
+.modal .country__right #map,
+.modal .country__right .map {
+  height: 250px;
+  margin-left: 20px;
+  width: 100%;
+  background: #ddd;
+}
+
+.main {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: -webkit-transform 0.4s linear;
+  transition: -webkit-transform 0.4s linear;
+  transition: transform 0.4s linear;
+  transition: transform 0.4s linear, -webkit-transform 0.4s linear;
+}
+
+.main--enter {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.main .form {
+  margin: 50px 0;
+  text-align: center;
+}
+
+.main .form .search {
+  display: inline-block;
+  padding: 5px 10px;
+  width: 30%;
+}
+
+.main .countries .group {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.main .countries .group__name {
+  margin-bottom: 50px;
+}
+
+.main .countries .group .carousel {
+  overflow: hidden;
+  background: #aaa;
+  padding: 25px 0;
+  position: relative;
+}
+
+.main .countries .group .carousel__slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: -webkit-transform 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: transform 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: transform 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86), -webkit-transform 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.main .countries .group .carousel__controller {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  border: none;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #333;
+  width: 50px;
+  height: 100%;
+  outline: none;
+}
+
+.main .countries .group .carousel__controller--previous {
+  left: 0;
+}
+
+.main .countries .group .carousel__controller--next {
+  right: 0;
+}
+
+.main .countries .group .carousel .country {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 140px;
+          flex: 0 0 140px;
+  background: #ffffff;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.main .countries .group .carousel .country__flag {
+  width: 100%;
+  height: 80px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.main .countries .group .carousel .country__name {
+  text-align: center;
+  padding: 10px;
+}
+/*# sourceMappingURL=index.css.map */
